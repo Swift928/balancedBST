@@ -310,13 +310,31 @@ class Node {
     }
 }
 
-let firstTree = new Tree(data);
-firstTree.insert(89);
-firstTree.insert(34);
-firstTree.insert(894);
-console.log(firstTree.isBalanced());
-console.log(firstTree.prettyPrint());
+const driver = (() => {
+    const randomNumbers = Array.from({ length: 15 }, () =>
+        Math.floor(Math.random() * 100)
+    );
 
-console.log(firstTree.rebalance());
-console.log(firstTree.isBalanced());
-console.log(firstTree.prettyPrint());
+    let testTree = new Tree(randomNumbers);
+    testTree.prettyPrint();
+    console.log('Is Balanced:', testTree.isBalanced());
+    console.log('Level Order', testTree.levelOrder());
+    console.log('PreOrder', testTree.preOrder());
+    console.log('PostOrder', testTree.postOrder());
+    console.log('In-order', testTree.inOrder());
+    testTree.insert(923);
+    testTree.insert(435);
+    testTree.insert(535);
+    testTree.insert(175);
+    console.log('Unbalanced the Tree');
+    testTree.prettyPrint();
+    console.log('Is Balanced:', testTree.isBalanced());
+    testTree.rebalance();
+    console.log('Rebalanced the Tree');
+    testTree.prettyPrint();
+    console.log('Is Balanced:', testTree.isBalanced());
+    console.log('Level Order', testTree.levelOrder());
+    console.log('PreOrder', testTree.preOrder());
+    console.log('PostOrder', testTree.postOrder());
+    console.log('In-order', testTree.inOrder());
+})();
